@@ -1,0 +1,30 @@
+.app {
+  display: flex;
+  height: 100vh;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* SIDEBAR AREA */
+.main {
+  margin-left: 230px;
+  width: calc(100% - 230px);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* SOMENTE CONTEUDO ROLA */
+.page {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* SCROLL */
+.page::-webkit-scrollbar {
+  width: 8px;
+}

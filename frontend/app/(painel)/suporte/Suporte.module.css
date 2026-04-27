@@ -1,0 +1,289 @@
+.container {
+  padding: 28px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.hero p {
+  color: var(--text-light);
+  max-width: 620px;
+}
+
+.primaryBtn {
+  height: 46px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.statCard {
+  background: #131a2b;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.statCard svg {
+  color: #60a5fa;
+}
+
+.statCard strong {
+  display: block;
+  font-size: 18px;
+}
+
+.statCard span {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* SEARCH */
+.searchBox {
+  height: 48px;
+  background: #131a2b;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 16px;
+  margin-bottom: 26px;
+}
+
+.searchBox svg {
+  color: var(--text-light);
+}
+
+.searchBox input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 28px;
+}
+
+.section h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* CHANNELS EM UMA LINHA */
+.channels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: #131a2b;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 18px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59,130,246,0.22);
+}
+
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardInfo h4 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.cardInfo p {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 15px;
+  margin: 0;
+}
+
+.iconBlue {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(59,130,246,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBlue svg {
+  color: #60a5fa;
+}
+
+.card h4 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.card p {
+  color: var(--text-light);
+  line-height: 1.4;
+  font-size: 13px;
+}
+
+.card button {
+  margin-top: auto;
+  width: 100%;
+  height: 42px;
+
+  border: none;
+  border-radius: 12px;
+  background: var(--gradient-primary);
+
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.card button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* ÚLTIMOS CHAMADOS EM UMA LINHA */
+.ticketList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.ticket {
+  background: #131a2b;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.ticket strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ticket span {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+.ticket small {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.warning {
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+}
+
+.success {
+  background: rgba(34,197,94,0.15);
+  color: #22c55e;
+}
+
+.pending {
+  background: rgba(239,68,68,0.15);
+  color: #ef4444;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1200px) {
+  .stats,
+  .channels,
+  .ticketList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .card button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats,
+  .channels,
+  .ticketList {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

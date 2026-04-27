@@ -1,0 +1,206 @@
+.card {
+  width: 320px;
+
+  background: #131a2b;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 18px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* TOPO */
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  background: rgba(59,130,246,0.10);
+  border: 1px solid rgba(59,130,246,0.25);
+
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* SECTION */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+/* INPUTS */
+.textarea,
+.input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: #0f172a;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: none;
+  padding: 12px;
+}
+
+.input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+/* BOTÃO */
+.addBtn {
+  height: 42px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(59,130,246,0.20);
+  background: rgba(59,130,246,0.08);
+
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* HANDLE */
+.handle {
+  width: 10px !important;
+  height: 10px !important;
+  border: none !important;
+  background: #3b82f6 !important;
+  z-index: 5 !important;
+}
+
+/* ENTRADA ESQUERDA */
+.leftHandle {
+  left: -6px !important;
+  top: 88px !important;
+  transform: none !important;
+}
+
+/* SAÍDA DIREITA */
+.mainHandle {
+  right: -6px !important;
+  top: 88px !important;
+  transform: none !important;
+  background: #3b82f6 !important;
+}
+
+
+.buttonRow {
+  position: relative;
+}
+
+.buttonHandle {
+  right: -24px !important;
+  background: #22c55e !important;
+
+  top: 21px !important;
+  transform: translateY(-50%) !important;
+}
+
+
+/* EXCLUIR ETAPA */
+.deleteBtn {
+  position: absolute;
+  top: 10;
+  right: 10;
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: rgba(239,68,68,0.08);
+  color: #ef4444;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background: rgba(239,68,68,0.16);
+}
+
+
+/* SELECT FLUXO ESTILO BOTÃO */
+.select {
+  width: 100%;
+  height: 42px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(59,130,246,0.20);
+
+  background: rgba(59,130,246,0.08);
+  color: #60a5fa;
+
+  padding: 0 42px 0 12px;
+  outline: none;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 8 10 13 15 8'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: right 12px center;
+}
+
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.switchRow input {
+  width: 16px;
+  height: 16px;
+  accent-color: #38bdf8;
+}
+
+.infoBox {
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(56,189,248,0.08);
+  border: 1px solid rgba(56,189,248,0.14);
+  color: #7dd3fc;
+  font-size: 12px;
+  line-height: 1.4;
+}

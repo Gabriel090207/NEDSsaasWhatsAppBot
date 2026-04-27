@@ -1,0 +1,91 @@
+.sidebar {
+  width: 230px;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px 21px;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText strong {
+  font-size: 13px;
+}
+
+.logoText span {
+    margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+/* ================= MENU ================= */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section {
+  font-size: 11px;
+  color: var(--text-light);
+  margin: 32px 0 6px;
+}
+
+/* ================= ITEM ================= */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  font-size: 13px;
+  color: var(--text-light);
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* HOVER */
+.item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+/* ATIVO */
+.active {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--primary);
+}

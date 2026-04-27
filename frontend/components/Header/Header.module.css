@@ -1,0 +1,150 @@
+.header {
+  height: 85px;
+
+  position: sticky;
+  top: 0;
+  z-index: 90;/* 🔥 mais presença */
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px; /* 🔥 mais espaçamento lateral */
+  background: var(--bg-secondary);
+}
+
+/* ================= LEFT ================= */
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.left h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.left span {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background: var(--border);
+}
+
+/* ================= SEARCH ================= */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+
+  padding: 11px 12px; /* 🔥 melhor spacing */
+  border-radius: 8px;
+
+  min-width: 660px;
+  transition: 0.2s;
+}
+
+.searchBox:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.searchBox input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 14px;
+  width: 100%;
+}
+
+.searchBox input::placeholder {
+  color: var(--text-light);
+}
+
+/* ================= RIGHT ================= */
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* 🔥 mais respiro */
+}
+
+/* ICON BUTTON */
+
+.iconBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.iconBtn:hover {
+  color: var(--primary); /* 🔥 hover bonito */
+}
+
+/* ================= USER ================= */
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 13px;
+}
+
+.userInfo strong {
+  font-weight: 500;
+}
+
+.userInfo span {
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+/* ================= AVATAR ================= */
+
+.avatar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  background: var(--gradient-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+/* ================= LOGOUT ================= */
+
+.logout {
+  cursor: pointer;
+  color: var(--text-light);
+  transition: 0.2s;
+}
+
+.logout:hover {
+  color: #ef4444; /* vermelho suave */
+}
