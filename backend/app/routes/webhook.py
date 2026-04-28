@@ -3,9 +3,9 @@ from app.schemas.cakto import CaktoWebhook
 from app.services.user_service import (
     create_or_update_user,
     deactivate_user,
-    mark_payment_failed,
-    renew_user
+    mark_payment_failed
 )
+from app.services.email_service import send_welcome_email
 import os
 
 router = APIRouter(prefix="/webhook", tags=["Webhook"])
@@ -13,46 +13,63 @@ router = APIRouter(prefix="/webhook", tags=["Webhook"])
 
 @router.post("/cakto")
 async def cakto_webhook(payload: CaktoWebhook):
-    print("Webhook recebido:", payload.event)
-
     secret_env = os.getenv("CAKTO_SECRET")
 
-    if secret_env and payload.secret != secret_env:
+    if payload.secret != secret_env:
         raise HTTPException(
             status_code=401,
-            detail="Secret inválido"
+            detail="Webhook inválido"
         )
 
-    email = payload.data.customer.email
-    name = payload.data.customer.name
-    plan = payload.data.offer.name
-    subscription_id = payload.data.subscription.id
-    next_payment = payload.data.subscription.next_payment_date
+    event = payload.event
+    customer = payload.data.customer
+    product = payload.data.product
+
+    email = customer.email
+    name = customer.name
+    plan = product.name
+
+    print("Evento recebido:", event)
 
     # NOVA ASSINATURA
-    if payload.event == "subscription_created":
+    if event == "subscription_created":
         user = create_or_update_user(
             name=name,
             email=email,
-            plan=plan,
-            subscription_id=subscription_id,
-            next_payment_date=next_payment
+            plan=plan
         )
 
-        return {"status": "user_created", "user": user}
+        # ENVIA EMAIL
+        send_welcome_email(
+            to_email=email,
+            customer_name=name
+        )
 
-    # RENOVOU
-    elif payload.event == "subscription_renewed":
-        renew_user(email, next_payment)
-        return {"status": "renewed"}
+        return {
+            "status": "user_created",
+            "user": user
+        }
+
+    # RENOVAÇÃO
+    elif event == "subscription_renewed":
+        user = create_or_update_user(
+            name=name,
+            email=email,
+            plan=plan
+        )
+
+        return {
+            "status": "renewed",
+            "user": user
+        }
 
     # CANCELADA
-    elif payload.event == "subscription_canceled":
+    elif event == "subscription_canceled":
         deactivate_user(email)
         return {"status": "canceled"}
 
     # COBRANÇA FALHOU
-    elif payload.event == "subscription_renewal_refused":
+    elif event == "subscription_renewal_refused":
         mark_payment_failed(email)
         return {"status": "payment_failed"}
 

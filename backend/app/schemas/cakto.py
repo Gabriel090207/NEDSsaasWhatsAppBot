@@ -8,23 +8,23 @@ class Customer(BaseModel):
     phone: Optional[str] = None
 
 
-class Offer(BaseModel):
-    name: str
-
-
 class Subscription(BaseModel):
     id: str
     status: str
-    next_payment_date: Optional[str] = None
 
 
-class DataPayload(BaseModel):
+class Product(BaseModel):
+    id: str
+    name: str
+
+
+class PayloadData(BaseModel):
     customer: Customer
-    offer: Offer
     subscription: Subscription
+    product: Product
 
 
 class CaktoWebhook(BaseModel):
     event: str
+    data: PayloadData
     secret: str
-    data: DataPayload
